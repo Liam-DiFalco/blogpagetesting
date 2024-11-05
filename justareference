@@ -1,0 +1,335 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Adam Warren">
+    <meta property="og:description" content="Writer, actor, developer.">
+    <meta property="og:image" content="https://adamw.uk/img/card.webp">
+    <meta property="og:url" content="https://adamw.uk/">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Adam Warren: writer, actor, developer</title>
+    <style>
+      body {
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      body.loaded {
+        opacity: 1;
+      }
+    </style>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+
+  <body class="loaded">
+    <section id="main">
+      <img src="/img/adam.webp" height="150px" width="150px" alt="Portrait of Adam" class="portrait">
+      <h1><span class="wave">👋</span> Hello! I'm Adam&nbsp;Warren.</h1>
+      <p>I'm a:</p>
+      <ul>
+        <li>Writer and editor</li>
+        <li>Web and game developer</li>
+        <li>Voice actor and voiceover artist</li>
+        <li>Pretty good dungeon master</li>
+      </ul>
+      <p>
+        You can email me <a href="mailto:hello@adamw.uk">here</a>,<br>
+        message me on Teams
+        <a href="https://teams.live.com/l/invite/FAAMzxD-RxF5n5UJRY">here</a>,<br>
+        or on Discord: Adam W#3897.
+      </p>
+      <svg class="squiggle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 100">
+        <path class="squiggle-path" d="M 0 50 Q 50 0, 100 50 Q 150 100, 200 50 Q 250 0, 300 50 Q 350 100, 400 50 Q 450 0, 500 50 Q 550 100, 600 50" stroke-width="5" stroke-linecap="round" fill="transparent"></path>
+      </svg>
+    </section>
+
+    <section id="projects">
+      <div class="heading">
+        <h2>Select projects</h2>
+        <a id="toggle-details" onclick="toggleDetails(this);" class="details-button">Open&nbsp;all</a>
+      </div>
+    
+        <section id="games">
+        <h3>🎮 Games</h3>
+        <ul class="projects-list"><li id="remainsofmyaffection"><details onclick="checkDetailsStatus(this)">
+        <summary>The Remains of My Affection</summary>
+      <div class="details-content">
+          <a class="imgLink" href="/img/screenshot-remains.png">
+          <img src="/img/screenshot-remains.webp" alt="Key art for The Remains of My Affection. Lisa, a white woman with brown hair, looks fearfully over her shoulder at you.">
+          </a>
+        
+        <em>Creator, writer, programmer, actor</em>
+        <p>The nightmares that have been haunting Lisa for weeks are starting to bleed into reality. Words she doesn't mean and choices she wouldn't take pile up day after day, week after week - spoken by someone other than herself.</p>
+        <p><a href="https://adam-w.itch.io/the-remains-of-my-affection">🔗 Itch.io</a></p>
+      </div></details></li><li id="sunnysideup"><details onclick="checkDetailsStatus(this)">
+        <summary>Sunny Side Up!</summary>
+      <div class="details-content">
+          <a class="imgLink" href="/img/screenshot-sunny.png">
+          <img src="/img/screenshot-sunny.webp" alt="A screen of Sunny Side up! shows a person and a space cat, side-by-side.">
+          </a>
+        
+        <em>Writer</em>
+        <p>Follow Sunny and Flynn through a journey of self-discovery and shell-breaking as they prepare for a galaxy-spanning omelet cooking contest!</p>
+        <p><a href="https://watercress.itch.io/sunny-side-up">🔗 Itch.io</a></p>
+      </div></details></li><li id="missingstars"><details onclick="checkDetailsStatus(this)">
+        <summary>Missing Stars</summary>
+      <div class="details-content">
+          <a class="imgLink" href="/img/screenshot-ms.png">
+          <img src="/img/screenshot-ms.webp" alt="Screenshot from Missing Stars showing Erik and his mother sitting on his bed.">
+          </a>
+        
+        <em>Writing lead, programmer</em>
+        <p>A visual novel about mental disorders and the people they affect.</p>
+        <p><a href="https://missing-stars.net/">🔗 Website</a></p>
+      </div></details></li><li id="arcadia"><details onclick="checkDetailsStatus(this)">
+        <summary>Arcadia</summary>
+      <div class="details-content">
+          <a class="imgLink" href="/img/screenshot-arcadia.png">
+          <img src="/img/screenshot-arcadia.webp" alt="Screenshot from Arcadia showing Eris talking to the player at a jazz club.">
+          </a>
+        
+        <em>Writer, programmer</em>
+        <p>A contemporary visual novel about the advancement of technology, the isolation one feels when they don't embrace those changes, and the trappings of wanting to enjoy the past.</p>
+        <p><a href="https://store.steampowered.com/app/987240/Arcadia/">🔗 Steam</a></p>
+      </div></details></li></ul>
+        </section>
+      
+        <section id="webdev">
+        <h3>🧑‍💻 Web development</h3>
+        <ul class="projects-list"><li id="diceroller"><details onclick="checkDetailsStatus(this)">
+        <summary>Dice roller</summary>
+      <div class="details-content">
+        <em>Developer</em>
+        <p>A simple-as-possible dice roller for Dungeons &amp; Dragons, designed to take up as little screen real estate as possible.</p>
+        <p><a href="https://dice.adamw.uk/">🔗 Website</a></p>
+      </div></details></li></ul>
+        </section>
+      
+        <section id="acting">
+        <h3>🎭 Acting</h3>
+        <ul class="projects-list"><li id="landwhalemurders"><details onclick="checkDetailsStatus(this)">
+        <summary>The Land Whale Murders</summary>
+      <div class="details-content">
+        <em>Henry Lubbins and The Duke</em>
+        <p>A gilded age satire of birders, murders, and a missing whale.</p>
+        <p><a href="https://www.landwhalepod.com/">🔗 Website</a></p>
+      </div></details></li><li id="thiswasforyou"><details onclick="checkDetailsStatus(this)">
+        <summary>this was for you.</summary>
+      <div class="details-content">
+        <em>Dad</em>
+        <p>After the crash, I wasn’t sure what to do with myself. Even now, I haven’t found my way forward. I keep going back to that place. These memories are all that's left. this was for you. is an interactive visual novel, originally created for NaNoRenO2019.</p>
+        <p><a href="https://store.steampowered.com/app/1067930/this_was_for_you/">🔗 Steam</a></p>
+      </div></details></li><li id="rolecall"><details onclick="checkDetailsStatus(this)">
+        <summary>Role Call</summary>
+      <div class="details-content">
+        <em>Tyler</em>
+        <p>Four ordinary guys get stuck in a world of role playing games (RPGs). What's going to happen? Not even we know. Pilot only.</p>
+        <p><a href="https://soundcloud.com/rolecallaudio/role-call-ep-1-new-life-plus">🔗 Soundcloud</a></p>
+      </div></details></li></ul>
+        </section>
+      </section>
+
+  <!-- Cloudflare Pages Analytics --><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;e658a8159cb34b1eb6097afd66af6bb0&quot;}"></script><!-- Cloudflare Pages Analytics -->
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelector('body').className = 'loaded';
+    })
+
+    const sections = [
+      {
+        id: "games",
+        title: "🎮 Games",
+      },
+      {
+        id: "webdev",
+        title: "🧑‍💻 Web development",
+      },
+      {
+        id: "acting",
+        title: "🎭 Acting",
+      },
+    ];
+    const projects = [
+      {
+        id: "remainsofmyaffection",
+        section: "games",
+        name: "The Remains of My Affection",
+        thumb: "screenshot-remains.webp",
+        fullimg: "screenshot-remains.png",
+        imgalt: "Key art for The Remains of My Affection. Lisa, a white woman with brown hair, looks fearfully over her shoulder at you.",
+        role: "Creator, writer, programmer, actor",
+        description:
+          "The nightmares that have been haunting Lisa for weeks are starting to bleed into reality. Words she doesn't mean and choices she wouldn't take pile up day after day, week after week - spoken by someone other than herself.",
+        linkname: "Itch.io",
+        linkurl: "https://adam-w.itch.io/the-remains-of-my-affection",
+      },
+      {
+        id: "sunnysideup",
+        section: "games",
+        name: "Sunny Side Up!",
+        thumb: "screenshot-sunny.webp",
+        fullimg: "screenshot-sunny.png",
+        imgalt: "A screen of Sunny Side up! shows a person and a space cat, side-by-side.",
+        role: "Writer",
+        description:
+          "Follow Sunny and Flynn through a journey of self-discovery and shell-breaking as they prepare for a galaxy-spanning omelet cooking contest!",
+        linkname: "Itch.io",
+        linkurl: "https://watercress.itch.io/sunny-side-up",
+      },
+      {
+        id: "missingstars",
+        section: "games",
+        name: "Missing Stars",
+        thumb: "screenshot-ms.webp",
+        fullimg: "screenshot-ms.png",
+        imgalt: "Screenshot from Missing Stars showing Erik and his mother sitting on his bed.",
+        role: "Writing lead, programmer",
+        description:
+          "A visual novel about mental disorders and the people they affect.",
+        linkname: "Website",
+        linkurl: "https://missing-stars.net/",
+      },
+      {
+        id: "arcadia",
+        section: "games",
+        name: "Arcadia",
+        thumb: "screenshot-arcadia.webp",
+        fullimg: "screenshot-arcadia.png",
+        imgalt: "Screenshot from Arcadia showing Eris talking to the player at a jazz club.",
+        role: "Writer, programmer",
+        description:
+          "A contemporary visual novel about the advancement of technology, the isolation one feels when they don't embrace those changes, and the trappings of wanting to enjoy the past.",
+        linkname: "Steam",
+        linkurl: "https://store.steampowered.com/app/987240/Arcadia/",
+      },
+      // {
+      //   id: "cerulean",
+      //   section: "games",
+      //   name: "Cerulean",
+      //   thumb: "screenshot-cerulean.png",
+      //   fullimg: "screenshot-cerulean.png",
+      //   imgalt: "Screenshot from Cerulean showing a beach and pier in a pixelart style.",
+      //   role: "Programmer",
+      //   description:
+      //     "A short visual novel by Pink Pomeranian Parade, created during July/August 2015 for the Summer Novel Festival game jam.",
+      //   linkname: "Itch.io",
+      //   linkurl: "https://adirosa.itch.io/cerulean",
+      // },
+      {
+        id: "diceroller",
+        section: "webdev",
+        name: "Dice roller",
+        thumb: null,
+        fullimg: null,
+        role: "Developer",
+        description:
+          "A simple-as-possible dice roller for Dungeons & Dragons, designed to take up as little screen real estate as possible.",
+        linkname: "Website",
+        linkurl: "https://dice.adamw.uk/",
+      },
+      {
+        id: "landwhalemurders",
+        section: "acting",
+        name: "The Land Whale Murders",
+        thumb: null,
+        fullimg: null,
+        role: "Henry Lubbins and The Duke",
+        description:
+          "A gilded age satire of birders, murders, and a missing whale.",
+        linkname: "Website",
+        linkurl: "https://www.landwhalepod.com/",
+      },
+      {
+        id: "thiswasforyou",
+        section: "acting",
+        name: "this was for you.",
+        thumb: null,
+        fullimg: null,
+        role: "Dad",
+        description:
+          "After the crash, I wasn’t sure what to do with myself. Even now, I haven’t found my way forward. I keep going back to that place. These memories are all that's left. this was for you. is an interactive visual novel, originally created for NaNoRenO2019.",
+        linkname: "Steam",
+        linkurl: "https://store.steampowered.com/app/1067930/this_was_for_you/",
+      },
+      {
+        id: "rolecall",
+        section: "acting",
+        name: "Role Call",
+        thumb: null,
+        fullimg: null,
+        role: "Tyler",
+        description:
+          "Four ordinary guys get stuck in a world of role playing games (RPGs). What's going to happen? Not even we know. Pilot only.",
+        linkname: "Soundcloud",
+        linkurl:
+          "https://soundcloud.com/rolecallaudio/role-call-ep-1-new-life-plus",
+      },
+    ];
+    for (let i = 0; i < sections.length; i++) {
+      let section = `
+        <section id=${sections[i].id}>
+        <h3>${sections[i].title}</h3>
+        <ul class="projects-list"></ul>
+        </section>
+      `;
+      document.querySelector("#projects").innerHTML += section;
+    }
+    for (let i = 0; i < projects.length; i++) {
+      let project = projects[i];
+      let li = document.createElement("li");
+      li.id = project.id;
+      let details = document.createElement("details");
+      details.setAttribute('onclick', 'checkDetailsStatus(this)');
+      let detailsContent = document.createElement("div");
+      detailsContent.setAttribute('class', 'details-content')
+      if (project.thumb) {
+        detailsContent.innerHTML += `
+          <a class="imgLink" href="/img/${project.fullimg}">
+          <img src="/img/${project.thumb}"
+          alt="${project.imgalt}" />
+          </a>
+        `;
+      }
+      detailsContent.innerHTML += `
+        <em>${project.role}</em>
+        <p>${project.description}</p>
+        <p><a href="${project.linkurl}">🔗 ${project.linkname}</a></p>
+      `;
+      details.innerHTML += `
+        <summary>${project.name}</summary>
+      `;
+      details.append(detailsContent);
+      li.append(details);
+      thisSection = document.querySelector(`#${project.section} .projects-list`);
+      thisSection.append(li);
+    }
+
+    function toggleDetails(el) {
+      if (document.querySelectorAll("details[open]").length == document.querySelectorAll("details").length) {
+        let details = document.querySelectorAll("details");
+        for (i = 0; i < details.length; i++) {
+          details[i].open = false;
+        }
+        document.querySelector('#toggle-details').textContent = "Open all";
+      } else {
+        let details = document.querySelectorAll("details");
+        for (i = 0; i < details.length; i++) {
+          details[i].open = true;
+        }
+        document.querySelector('#toggle-details').textContent = "Close all";
+      }
+    }
+
+    function checkDetailsStatus(el) {
+      setTimeout(() => {
+        if (document.querySelectorAll("details[open]").length == document.querySelectorAll("details").length) {
+          document.querySelector('#toggle-details').textContent = "Close all";
+        } else {
+          document.querySelector('#toggle-details').textContent = "Open all";
+        }
+      }, 1);
+    }
+  </script>
+
+
+</body></html>
