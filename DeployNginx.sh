@@ -22,8 +22,8 @@ else
 fi
 
 echo "Setting permissions for $WEB_DIR/$INDEX_FILE..."
-sudo chown nginx:nginx "$WEB_DIR/$INDEX_FILE"
-sudo chmod 644 "$WEB_DIR/$INDEX_FILE"
+# sudo chown nginx:nginx "$WEB_DIR/$INDEX_FILE"
+# sudo chmod 644 "$WEB_DIR/$INDEX_FILE"
 
 echo "Configuring firewall to allow HTTP and HTTPS traffic."
 sudo firewall-cmd --permanent --add-service=http
