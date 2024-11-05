@@ -28,12 +28,15 @@ if [ -f "$CMSIMPLE_ZIP" ]; then
     sudo rm -rf "$WEB_DIR/CMSimple*"  # Remove previous CMSimple folders if they exist
 
     echo "Extracting CMSimple in the web directory..."
-    # Extract files without creating a subdirectory
-    sudo unzip -o "$CMSIMPLE_ZIP" -d "$WEB_DIR"
-    
-    # Move extracted files into the root directory
-    sudo mv "$WEB_DIR/CMSimple*"/* "$WEB_DIR/"
-    sudo rmdir "$WEB_DIR/CMSimple*"  # Remove the now-empty subdirectory
+    # Extract the CMSimple zip file
+    sudo unzip -o "$CMSIMPLE_ZIP"
+
+    # Move the contents of the CMSimple directory to the web root
+    if [ -d "$WEB_DIR/CMSimple_5-16" ]; then
+        sudo mv "$WEB_DIR/CMSimple_5-16/"* "$WEB_DIR/"  # Move all files to the web root
+        sudo rmdir "$WEB_DIR/CMSimple_5-16"  # Remove the now-empty directory
+    fi
+
     sudo rm "$CMSIMPLE_ZIP"  # Clean up the zip file after extraction
 else
     echo "Error: Failed to download CMSimple. Please check the download URL."
@@ -82,4 +85,4 @@ sudo systemctl restart nginx
 
 echo "CMSimple setup finished..."
 echo "CMSimple should now be accessible from the server."
-echo "Visit http://<your-server-ip> to access CMSimple."
+echo "Visit http://10.0.5.10 to access CMSimple."
