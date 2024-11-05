@@ -25,8 +25,10 @@ sudo wget -O "$CMSIMPLE_ZIP" "$CMSIMPLE_URL"
 
 if [ -f "$CMSIMPLE_ZIP" ]; then
     echo "Extracting CMSimple in the web directory..."
-    sudo unzip -o "$CMSIMPLE_ZIP"
-    sudo rm "$CMSIMPLE_ZIP"  # Clean up the zip file after extraction
+    # Extract directly into the web directory
+    sudo unzip -o "$CMSIMPLE_ZIP" -d "$WEB_DIR" 
+    # Remove the downloaded zip file
+    sudo rm "$CMSIMPLE_ZIP"  
 else
     echo "Error: Failed to download CMSimple. Please check the download URL."
     exit 1
