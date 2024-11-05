@@ -36,6 +36,9 @@ echo "Configuring file permissions for CMSimple..."
 sudo chown -R nginx:nginx "$WEB_DIR"
 sudo chmod -R 755 "$WEB_DIR"
 
+echo "Removing the default Nginx configuration to avoid conflicts..."
+sudo rm -f /etc/nginx/conf.d/default.conf
+
 echo "Configuring Nginx for CMSimple..."
 sudo bash -c "cat > /etc/nginx/conf.d/cmsimple.conf" <<EOL
 server {
@@ -70,6 +73,5 @@ echo "Restarting Nginx to apply changes"
 sudo systemctl restart nginx
 
 echo "CMSimple setup finished..."
-echo "CMSimple is now available on the server."
+echo "CMSimple should now be available on the server."
 echo "Visit http://<your-server-ip> to access CMSimple."
-echo "Enjoy it B)"
