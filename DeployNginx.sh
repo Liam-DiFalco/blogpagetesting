@@ -15,13 +15,13 @@ sudo systemctl enable nginx
 
 if [ -f "$INDEX_FILE" ]; then
     echo "Moving index.html to Nginx web directory..."
-    sudo mv "$INDEX_FILE" "$WEB_DIR"
+    sudo cp "$INDEX_FILE" "$WEB_DIR"
 else
     echo "Error: $INDEX_FILE not found. Please ensure the index.html file is in the same directory as this script."
     exit 1
 fi
 
-echo "Setting permissions for $WEB_DIR/$INDEX_FILE..."
+# echo "Setting permissions for $WEB_DIR/$INDEX_FILE..."
 # sudo chown nginx:nginx "$WEB_DIR/$INDEX_FILE"
 # sudo chmod 644 "$WEB_DIR/$INDEX_FILE"
 
