@@ -4,7 +4,7 @@ sudo dnf update -y
 # Install Apache and necessary modules
 sudo dnf install -y httpd httpd-devel
 # Install PHP and necessary extensions
-sudo dnf install -y php php-fpm php-cli php-xml php-zip php-mbstring php-intl
+sudo dnf install -y php php-fpm php-cli php-xml php-zip php-mbstring php-intl wget
 # Download and unzip Grav
 wget https://getgrav.org/download/core/grav-admin/latest -O grav-admin.zip
 unzip grav-admin.zip -d /var/www/html
