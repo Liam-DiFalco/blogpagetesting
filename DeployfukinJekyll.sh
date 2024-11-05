@@ -9,30 +9,41 @@ sudo yum update -y
 
 # Install dependencies
 echo "Installing required packages..."
-sudo yum install -y gcc make curl git
+sudo yum install -y gcc make curl git zlib-devel libffi-devel openssl-devel
 
-# Install the latest Ruby from the EPEL repository
-echo "Enabling EPEL repository..."
-sudo yum install -y epel-release
+# Install rbenv and ruby-build
+echo "Installing rbenv..."
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
 
-echo "Installing Ruby and development tools..."
-sudo yum install -y ruby ruby-devel
+echo "Installing ruby-build..."
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+# Install Ruby 3.0.0
+echo "Installing Ruby 3.0.0..."
+rbenv install 3.0.0
+rbenv global 3.0.0
+
+# Verify Ruby installation
+ruby -v
 
 # Install Bundler and Jekyll
 echo "Installing Bundler..."
-sudo gem install bundler
+gem install bundler
 
 echo "Installing Jekyll..."
-sudo gem install jekyll
+gem install jekyll
 
 # Create Jekyll site
 echo "Creating new Jekyll site in $SITE_DIR..."
-sudo jekyll new $SITE_DIR
+jekyll new $SITE_DIR
 
 # Build the site
 echo "Building the Jekyll site..."
 cd $SITE_DIR
-sudo jekyll build
+jekyll build
 
 # Set permissions
 echo "Setting permissions for $SITE_DIR..."
