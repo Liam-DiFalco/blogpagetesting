@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # Install Apache
-sudo yum update
-sudo yum install -y apache2 wget unzip
+sudo dnf update -y
+sudo dnf install -y httpd
 
 # Install Grav CMS
 sudo wget -O grav.zip https://github.com/getgrav/grav/releases/latest/download/grav-admin.zip
 sudo unzip grav.zip -d /var/www/html/
-sudo chown -R www-data:www-data /var/www/html/grav
+sudo chown -R apache:apache /var/www/html/grav
 
 # Configure Apache
-sudo cat << EOF > /etc/apache2/sites-available/grav.conf
+sudo cat << EOF > /etc/httpd/conf.d/grav.conf
 <VirtualHost *:80>
     ServerName localhost
     DocumentRoot /var/www/html/grav
@@ -22,5 +22,5 @@ sudo cat << EOF > /etc/apache2/sites-available/grav.conf
 </VirtualHost>
 EOF
 
-sudo a2ensite grav.conf
-sudo systemctl restart apache2
+sudo systemctl enable httpd
+sudo systemctl start httpd
