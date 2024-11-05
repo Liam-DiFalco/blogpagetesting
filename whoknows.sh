@@ -24,7 +24,7 @@ cat << 'EOF' | sudo tee /etc/nginx/conf.d/grav.conf
 server {
     listen 80;
 
-    server_name your_domain.com;
+    server_name 10.0.5.10;
 
     root /var/www/html/grav;
     index index.php;
