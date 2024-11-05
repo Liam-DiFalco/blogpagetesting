@@ -15,8 +15,8 @@ if [ $php_major_version -lt 7 ] || ([ $php_major_version -eq 7 ] && [ $php_minor
     sudo dnf install -y php74-php-fpm php74-php-cli php74-php-xml php74-php-zip php74-php-mbstring php74-php-intl
 fi
 
-# Install Apache and necessary modules
-sudo dnf install -y httpd httpd-devel
+# Install Apache, PHP, and necessary modules
+sudo dnf install -y httpd httpd-devel php php-fpm php-cli php-xml php-zip php-mbstring php-intl wget
 
 # Download and unzip Grav
 wget https://github.com/getgrav/grav/releases/download/1.7.27/grav-admin-v1.7.27.zip -O grav-admin.zip
