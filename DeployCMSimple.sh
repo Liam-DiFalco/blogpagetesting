@@ -24,11 +24,17 @@ cd "$WEB_DIR"
 sudo wget -O "$CMSIMPLE_ZIP" "$CMSIMPLE_URL"
 
 if [ -f "$CMSIMPLE_ZIP" ]; then
+    echo "Removing any existing CMSimple directories..."
+    sudo rm -rf "$WEB_DIR/CMSimple*"  # Remove previous CMSimple folders if they exist
+
     echo "Extracting CMSimple in the web directory..."
-    # Extract directly into the web directory
-    sudo unzip -o "$CMSIMPLE_ZIP" -d "$WEB_DIR" 
-    # Remove the downloaded zip file
-    sudo rm "$CMSIMPLE_ZIP"  
+    # Extract files without creating a subdirectory
+    sudo unzip -o "$CMSIMPLE_ZIP" -d "$WEB_DIR"
+    
+    # Move extracted files into the root directory
+    sudo mv "$WEB_DIR/CMSimple*"/* "$WEB_DIR/"
+    sudo rmdir "$WEB_DIR/CMSimple*"  # Remove the now-empty subdirectory
+    sudo rm "$CMSIMPLE_ZIP"  # Clean up the zip file after extraction
 else
     echo "Error: Failed to download CMSimple. Please check the download URL."
     exit 1
