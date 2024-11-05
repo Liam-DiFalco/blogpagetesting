@@ -16,11 +16,11 @@ sudo mv /var/www/html/grav-admin /var/www/html/grav
 rm grav-admin.zip
 
 # Set permissions
-sudo chown -R www-data:www-data /var/www/html/grav
+sudo chown -R nginx:nginx /var/www/html/grav
 sudo chmod -R 755 /var/www/html/grav
 
 # Configure Nginx
-cat << 'EOF' | sudo tee /etc/nginx/sites-available/grav
+cat << 'EOF' | sudo tee /etc/nginx/conf.d/grav.conf
 server {
     listen 80;
 
@@ -30,26 +30,19 @@ server {
     index index.php;
 
     location / {
-        try_files \$uri \$uri/ /index.php?\$query_string;
+        try_files $uri $uri/ /index.php?$query_string;
     }
 
-    location ~ \.php\$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+    location ~ \.php$ {
         include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass unix:/run/php-fpm/www.sock;
     }
 }
 EOF
 
-# Enable the Grav site and disable the default site
-sudo ln -s /etc/nginx/sites-available/grav /etc/nginx/sites-enabled/
-sudo unlink /etc/nginx/sites-enabled/default
-
-# Restart Nginx
+# Restart Nginx and PHP-FPM
 sudo systemctl restart nginx
-
-# Confirm PHP-FPM is running
-sudo systemctl restart php7.4-fpm
+sudo systemctl restart php-fpm
 
 echo "Grav CMS installation completed. Please configure your domain or update your hosts file to test your new Grav site."
