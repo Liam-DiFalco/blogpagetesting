@@ -1,42 +1,41 @@
 #!/bin/bash
 
+INDEX_FILE="index.html"  # custom index file in the same directory as this script
+WEB_DIR="/usr/share/nginx/html"  # default web directory for Nginx
 
-INDEX="index.html" 
-WEB_DIR="/usr/share/nginx/html" 
-
-echo "Get ready, were updating the system packages..."
+echo "Updating system packages..."
 sudo yum update -y
 
-echo "Installing Best local web hoster: Nginx..."
+echo "Installing Nginx..."
 sudo yum install -y nginx
 
 echo "Starting and enabling Nginx..."
 sudo systemctl start nginx
 sudo systemctl enable nginx
 
-if [ -f "$INDEX" ]; then
+if [ -f "$INDEX_FILE" ]; then
     echo "Moving index.html to Nginx web directory..."
-    sudo mv "$INDEX" "$WEB_DIR"
+    sudo mv "$INDEX_FILE" "$WEB_DIR"
 else
-    echo "Error: $INDEX not found. Please make sure the index.html file is in the same directory as this script goober."
+    echo "Error: $INDEX_FILE not found. Please ensure the index.html file is in the same directory as this script."
     exit 1
 fi
 
-echo "Setting permissions for $WEB_DIR/$INDEX..."
-sudo chown nginx:nginx "$WEB_DIR/$INDEX"
+echo "Setting permissions for $WEB_DIR/$INDEX_FILE..."
+sudo chown nginx:nginx "$WEB_DIR/$INDEX_FILE"
 sudo chmod 644 "$WEB_DIR/$INDEX_FILE"
 
-echo "Configuring firewall RIGHT NOW!!!!!!!!!!!"
+echo "Configuring firewall to allow HTTP and HTTPS traffic."
 sudo firewall-cmd --permanent --add-service=http
 sudo firewall-cmd --permanent --add-service=https
 sudo firewall-cmd --reload
 
-echo "Testing Nginx NOW!!!!"
+echo "Testing Nginx configuration"
 sudo nginx -t
 
-echo "Restarting Nginx ;)"
+echo "Restarting Nginx"
 sudo systemctl restart nginx
 
-echo "Nginx web server finally complete with firewall rules B)"
-echo "index.html is now available on the server."
-echo "Enjoy!"
+echo "Nginx web server setup finished..."
+echo "The Webserver is now available on the server."
+echo "Enjoy it B)"
