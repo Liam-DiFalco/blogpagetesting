@@ -9,31 +9,30 @@ sudo yum update -y
 
 # Install dependencies
 echo "Installing required packages..."
-sudo yum install -y gcc make curl gpg
+sudo yum install -y gcc make curl git
 
-# Install RVM
-echo "Installing RVM..."
-curl -sSL https://get.rvm.io | bash -s stable
-source ~/.rvm/scripts/rvm
+# Install the latest Ruby from the EPEL repository
+echo "Enabling EPEL repository..."
+sudo yum install -y epel-release
 
-# Install the latest Ruby version
-echo "Installing the latest Ruby..."
-rvm install ruby --latest
-rvm use ruby --default
+echo "Installing Ruby and development tools..."
+sudo yum install -y ruby ruby-devel
 
 # Install Bundler and Jekyll
-echo "Installing Bundler and Jekyll..."
-gem install bundler
-gem install jekyll
+echo "Installing Bundler..."
+sudo gem install bundler
+
+echo "Installing Jekyll..."
+sudo gem install jekyll
 
 # Create Jekyll site
 echo "Creating new Jekyll site in $SITE_DIR..."
-jekyll new $SITE_DIR
+sudo jekyll new $SITE_DIR
 
 # Build the site
 echo "Building the Jekyll site..."
 cd $SITE_DIR
-jekyll build
+sudo jekyll build
 
 # Set permissions
 echo "Setting permissions for $SITE_DIR..."
