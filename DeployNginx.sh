@@ -1,7 +1,7 @@
 #!/bin/bash
 
-INDEX_FILE="index.html"  # custom index file in the same directory as this script
-WEB_DIR="/usr/share/nginx/html"  # default web directory for Nginx
+INDEX_FILE="index.html" 
+WEB_DIR="/usr/share/nginx/html" 
 
 echo "Updating system packages..."
 sudo yum update -y
