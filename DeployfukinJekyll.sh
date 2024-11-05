@@ -2,8 +2,6 @@
 
 # Variables
 SITE_DIR="/usr/share/nginx/html/my_jekyll_site"
-GITHUB_URL="https://github.com/jekyll/jekyll"
-BRANCH="master"  # Use 'main' or 'master' depending on the repo version
 
 # Update system packages
 echo "Updating system packages..."
@@ -11,21 +9,31 @@ sudo yum update -y
 
 # Install dependencies
 echo "Installing required packages..."
-sudo yum install -y ruby ruby-devel gcc make
-sudo gem install bundler
+sudo yum install -y gcc make curl gpg
 
-# Install Jekyll
-echo "Installing Jekyll..."
-sudo gem install jekyll
+# Install RVM
+echo "Installing RVM..."
+curl -sSL https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+
+# Install the latest Ruby version
+echo "Installing the latest Ruby..."
+rvm install ruby --latest
+rvm use ruby --default
+
+# Install Bundler and Jekyll
+echo "Installing Bundler and Jekyll..."
+gem install bundler
+gem install jekyll
 
 # Create Jekyll site
 echo "Creating new Jekyll site in $SITE_DIR..."
-sudo jekyll new $SITE_DIR
+jekyll new $SITE_DIR
 
 # Build the site
 echo "Building the Jekyll site..."
 cd $SITE_DIR
-sudo jekyll build
+jekyll build
 
 # Set permissions
 echo "Setting permissions for $SITE_DIR..."
