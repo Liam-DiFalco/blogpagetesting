@@ -1,10 +1,16 @@
 #!/bin/bash
 
-# First stop any existing httpd process and clear up any existing pid
+# Stop any existing httpd process and clear up any existing pid
 sudo systemctl stop httpd
 sudo rm -f /var/run/httpd/httpd.pid
 
-# Install Apache and required packages
+# Install the Remi repository for newer PHP versions
+sudo dnf install -y dnf-utils
+sudo dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+sudo dnf module reset php -y
+sudo dnf module enable php:remi-8.1 -y
+
+# Install Apache and PHP 8.1 with required extensions
 sudo dnf update -y
 sudo dnf install -y httpd wget unzip php php-json php-zip php-gd php-curl php-mbstring php-xml
 
@@ -17,8 +23,8 @@ sudo chown -R apache:apache /var/www/html/grav
 
 # Configure Apache Virtual Host
 sudo cat << EOF > /etc/httpd/conf.d/grav.conf
-<VirtualHost *:80>
-    ServerName 10.0.5.22
+<VirtualHost *:443>
+    ServerName 10.0.2.3
     DocumentRoot /var/www/html/grav
     <Directory /var/www/html/grav>
         Options Indexes FollowSymLinks MultiViews
@@ -26,15 +32,18 @@ sudo cat << EOF > /etc/httpd/conf.d/grav.conf
         Require all granted
         DirectoryIndex index.php
     </Directory>
+    SSLEngine on
+    SSLCertificateFile /path/to/your/certificate.crt
+    SSLCertificateKeyFile /path/to/your/private.key
 </VirtualHost>
 EOF
 
-# Configure firewall if enabled
-sudo firewall-cmd --permanent --add-port=80/tcp
+# Configure firewall for HTTPS if enabled
+sudo firewall-cmd --permanent --add-port=443/tcp
 sudo firewall-cmd --reload
 
 # Start and enable Apache
 sudo systemctl enable httpd
 sudo systemctl start httpd
 
-echo "Installation complete. Please visit http://10.0.5.10 to complete the setup."
+echo "Installation complete. Please visit https://10.0.5.10 to complete the setup."
