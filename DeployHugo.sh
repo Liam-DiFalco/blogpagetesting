@@ -3,6 +3,7 @@
 # Variables
 SITE_NAME="my-hugo-site"
 SITE_DIR="/usr/share/nginx/html/$SITE_NAME"
+HUGO_VERSION="0.113.2"  # Change this to the latest version if needed
 
 # Update system packages
 echo "Updating system packages..."
@@ -21,9 +22,16 @@ sudo systemctl enable nginx
 echo "Installing required packages..."
 sudo yum install -y git wget
 
-# Install Hugo
-echo "Installing Hugo..."
-sudo yum install -y hugo
+# Check if Hugo is installed, if not, download and install it
+if ! command -v hugo &> /dev/null; then
+    echo "Hugo not found. Installing Hugo version $HUGO_VERSION..."
+    wget https://github.com/goharbor/harbor/releases/download/v$HUGO_VERSION/hugo_extended_$HUGO_VERSION_linux_amd64.tar.gz
+    tar -xzf hugo_extended_$HUGO_VERSION_linux_amd64.tar.gz
+    sudo mv hugo /usr/local/bin/
+    rm hugo_extended_$HUGO_VERSION_linux_amd64.tar.gz
+else
+    echo "Hugo is already installed."
+fi
 
 # Create a new Hugo site
 echo "Creating new Hugo site in $SITE_DIR..."
