@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Install Apache
-sudo apt-get update
-sudo apt-get install -y apache2 wget unzip
+sudo yum update
+sudo yum install -y apache2 wget unzip
 
 # Install Grav CMS
 sudo wget -O grav.zip https://github.com/getgrav/grav/releases/latest/download/grav-admin.zip
