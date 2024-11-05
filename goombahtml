@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to files.goomba.cloud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #444;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to files.goomba.cloud</h1>
+    <p>
+        Our file server at <a href="https://files.goomba.cloud">goomba.cloud</a> is your go-to resource for file storage and file sharing.
+        Designed for accessibility and ease of use, it provides a seamless way to access, upload, and manage files from anywhere.
+    </p>
+
+    <h2>Features</h2>
+    <p>
+        <ul>
+            <li>Easy access to your files anytime, anywhere.</li>
+            <li>Secure file storage with regular backups.</li>
+            <li>Simple file sharing with custom access settings.</li>
+        </ul>
+    </p>
+
+    <h2>Getting Started</h2>
+    <p>
+        To start using the file server, simply visit <a href="https://files.goomba.cloud">files.goomba.cloud</a> and log in with your credentials.
+        Once logged in, you’ll have access to your files and a range of options to upload, download, and share your content.
+    </p>
+
+    <div class="footer">
+        &copy; 2024 files.goomba.cloud - All rights reserved.
+    </div>
+</div>
+
+</body>
+</html>
