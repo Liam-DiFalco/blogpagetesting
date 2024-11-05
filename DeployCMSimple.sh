@@ -19,27 +19,27 @@ sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
 sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
 
-echo "Downloading CMSimple..."
-wget -O "$CMSIMPLE_ZIP" "$CMSIMPLE_URL"
+echo "Downloading CMSimple directly to the web directory..."
+cd "$WEB_DIR"
+sudo wget -O "$CMSIMPLE_ZIP" "$CMSIMPLE_URL"
 
 if [ -f "$CMSIMPLE_ZIP" ]; then
-    echo "Extracting CMSimple to the web directory..."
-    sudo unzip -o "$CMSIMPLE_ZIP" -d /tmp/cmsimple
-    sudo cp -r /tmp/cmsimple/* "$WEB_DIR/"
-    sudo rm -rf /tmp/cmsimple "$CMSIMPLE_ZIP"
+    echo "Extracting CMSimple in the web directory..."
+    sudo unzip -o "$CMSIMPLE_ZIP"
+    sudo rm "$CMSIMPLE_ZIP"  # Clean up the zip file after extraction
 else
     echo "Error: Failed to download CMSimple. Please check the download URL."
     exit 1
 fi
 
-echo "Configuring file permissions for CMSimple..."
+echo "Setting correct permissions for CMSimple files..."
 sudo chown -R nginx:nginx "$WEB_DIR"
 sudo chmod -R 755 "$WEB_DIR"
 
 echo "Removing the default Nginx configuration to avoid conflicts..."
 sudo rm -f /etc/nginx/conf.d/default.conf
 
-echo "Configuring Nginx for CMSimple..."
+echo "Creating a custom Nginx configuration for CMSimple..."
 sudo bash -c "cat > /etc/nginx/conf.d/cmsimple.conf" <<EOL
 server {
     listen 80;
@@ -73,5 +73,5 @@ echo "Restarting Nginx to apply changes"
 sudo systemctl restart nginx
 
 echo "CMSimple setup finished..."
-echo "CMSimple should now be available on the server."
+echo "CMSimple should now be accessible from the server."
 echo "Visit http://<your-server-ip> to access CMSimple."
