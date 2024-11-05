@@ -4,7 +4,7 @@ sudo dnf update -y
 # Install necessary packages
 sudo dnf install -y httpd httpd-devel php php-fpm php-cli php-xml php-zip php-mbstring php-intl wget
 # Download and unzip Grav
-wget https://getgrav.org/download/core/grav-admin/latest -O grav-admin.zip
+wget https://github.com/getgrav/grav/releases/download/1.7.27/grav-admin-v1.7.27.zip -O grav-admin.zip
 unzip grav-admin.zip -d /var/www/html
 sudo mv /var/www/html/grav-admin /var/www/html/grav
 rm grav-admin.zip
