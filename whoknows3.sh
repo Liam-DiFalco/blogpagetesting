@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# First stop any existing httpd process and clear up any existing pid
+sudo systemctl stop httpd
+sudo rm -f /var/run/httpd/httpd.pid
+
 # Install Apache and required packages
 sudo dnf update -y
 sudo dnf install -y httpd wget unzip php php-json php-zip php-gd php-curl php-mbstring php-xml
@@ -11,14 +15,9 @@ unzip grav.zip
 sudo mv grav-admin /var/www/html/grav
 sudo chown -R apache:apache /var/www/html/grav
 
-# Configure Apache to listen on specific IP
-sudo cat << EOF > /etc/httpd/conf.d/listen.conf
-Listen 10.0.5.22:80
-EOF
-
 # Configure Apache Virtual Host
 sudo cat << EOF > /etc/httpd/conf.d/grav.conf
-<VirtualHost 10.0.5.22:80>
+<VirtualHost *:80>
     ServerName 10.0.5.22
     DocumentRoot /var/www/html/grav
     <Directory /var/www/html/grav>
@@ -30,16 +29,12 @@ sudo cat << EOF > /etc/httpd/conf.d/grav.conf
 </VirtualHost>
 EOF
 
-# Configure SELinux if enabled
-sudo setsebool -P httpd_can_network_connect 1
-sudo setsebool -P httpd_unified 1
-
 # Configure firewall if enabled
 sudo firewall-cmd --permanent --add-port=80/tcp
 sudo firewall-cmd --reload
 
 # Start and enable Apache
 sudo systemctl enable httpd
-sudo systemctl restart httpd
+sudo systemctl start httpd
 
 echo "Installation complete. Please visit http://10.0.5.10 to complete the setup."
