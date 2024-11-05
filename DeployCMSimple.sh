@@ -20,15 +20,13 @@ sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
 
 echo "Downloading CMSimple..."
-wget "$CMSIMPLE_URL" -O "$CMSIMPLE_ZIP"
+wget -O "$CMSIMPLE_ZIP" "$CMSIMPLE_URL"
 
 if [ -f "$CMSIMPLE_ZIP" ]; then
     echo "Extracting CMSimple to the web directory..."
-    sudo unzip -o "$CMSIMPLE_ZIP" -d "$WEB_DIR"
-    CMSIMPLE_DIR=$(basename "$CMSIMPLE_ZIP" .zip)  # Gets the extracted directory name
-    sudo mv "$WEB_DIR/$CMSIMPLE_DIR"/* "$WEB_DIR"
-    sudo rm -rf "$WEB_DIR/$CMSIMPLE_DIR"
-    sudo rm "$CMSIMPLE_ZIP"
+    sudo unzip -o "$CMSIMPLE_ZIP" -d /tmp/cmsimple
+    sudo cp -r /tmp/cmsimple/* "$WEB_DIR/"
+    sudo rm -rf /tmp/cmsimple "$CMSIMPLE_ZIP"
 else
     echo "Error: Failed to download CMSimple. Please check the download URL."
     exit 1
@@ -73,5 +71,5 @@ sudo systemctl restart nginx
 
 echo "CMSimple setup finished..."
 echo "CMSimple is now available on the server."
-echo "Visit http://10.0.5.10 to access CMSimple."
+echo "Visit http://<your-server-ip> to access CMSimple."
 echo "Enjoy it B)"
