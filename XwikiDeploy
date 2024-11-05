@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "Updating system packages..."
+sudo yum update -y
+
+echo "Installing necessary dependencies for XWiki..."
+sudo yum install -y wget unzip
+
+echo "Adding XWiki repository..."
+wget https://maven.xwiki.org/xwiki-keyring.asc
+sudo rpm --import xwiki-keyring.asc
+sudo wget "https://yum.xwiki.org/stable/xwiki-stable.repo" -P /etc/yum.repos.d/
+
+echo "Installing XWiki with MariaDB as the database..."
+sudo yum install -y xwiki-tomcat9-mariadb
+
+echo "Configuring XWiki database..."
+sudo systemctl start mariadb
+sudo mysql -e "CREATE DATABASE xwiki CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;"
+sudo mysql -e "CREATE USER 'xwiki'@'localhost' IDENTIFIED BY 'xwiki-password';"
+sudo mysql -e "GRANT ALL PRIVILEGES ON xwiki.* TO 'xwiki'@'localhost';"
+sudo mysql -e "FLUSH PRIVILEGES;"
+
+echo "Configuring firewall to allow HTTP and HTTPS traffic."
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
+
+echo "Starting and enabling XWiki..."
+sudo systemctl start xwiki
+sudo systemctl enable xwiki
+
+echo "XWiki setup finished..."
+echo "The XWiki instance is now available on the server."
+echo "Visit http://<your-server-ip>:8080 to access XWiki."
+echo "Enjoy it B)"
