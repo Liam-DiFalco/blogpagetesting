@@ -8,6 +8,15 @@ SITE_DIR="/usr/share/nginx/html/$SITE_NAME"
 echo "Updating system packages..."
 sudo yum update -y
 
+# Install Nginx
+echo "Installing Nginx..."
+sudo yum install -y nginx
+
+# Start and enable Nginx
+echo "Starting and enabling Nginx..."
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
 # Install dependencies
 echo "Installing required packages..."
 sudo yum install -y git wget
