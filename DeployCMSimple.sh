@@ -1,8 +1,8 @@
 #!/bin/bash
 
 WEB_DIR="/usr/share/nginx/html"
-CMSIMPLE_ZIP="CMSimple_XH_1-7-5.zip"
-CMSIMPLE_URL="https://github.com/cmsimple-xh/cmsimple-xh/releases/download/1.7.5/$CMSIMPLE_ZIP"
+CMSIMPLE_ZIP="CMSimple_5-16.zip"
+CMSIMPLE_URL="https://www.cmsimple.org/downloadcounter/dlcount/count.php?id=31"
 
 echo "Updating system packages..."
 sudo yum update -y
