@@ -21,8 +21,8 @@
 ### **Top Reasons I Love Cybersecurity (aka Why I Have No Social Life)**
 
 1. **Because of This** – “My Beloved” 😅
-   - ![Meme](https://imgur.com/gallery/just-reminding-everyone-how-pikachu-looked-before-hollywood-f5EO6nd)  
-   _(Me when I realize I left the server exposed)_
+   - ![Meme]((https://i.imgur.com/s0dmtAE.jpeg))  
+   _(Me when I realize I have to do more Ansible)_
 
 3. **But Really** – I Really am paranoid about my data, and got into Forensics to learn if there was malware on my Computer
    - **Then:** I took some cyber courses and it really stuck, so I took as many as I could.
