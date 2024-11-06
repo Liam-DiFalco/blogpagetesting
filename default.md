@@ -1,7 +1,4 @@
-# 💻🌐 MMMM I LOB CYBERSECURITY 🚨💔
-
-## **Cyber Security my love**
-> _"In this house, we respect firewalls and strong passwords."_ 🖥️🔒
+# 💻🌐 MMMM I LOVE CYBERSECURITY 🚨💔
 
 
 ### **Who Am I?**
@@ -9,7 +6,9 @@
 
 - **A Cool Guy** 💀: _"I like Cyber Security and Yelling at pythons."_  
   - ![MEEE!!!!](https://media.licdn.com/dms/image/v2/C5603AQHGDMGbaaiAMw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1633485803681?e=1736380800&v=beta&t=JKLeQsK_V7CNauBEiEeqF59Fykdz7N0P00CcPqve6Z8)  
-    _(Ain’t nobody cracking hunter2)_
+    _"Ain’t nobody cracking hunter2"_
+
+---
 
 - **Interests?** 🔥: “I Like cars and computers and breaking things when I dont have the skill to fix them”
   - 3 subarus, one toyota and one honda
@@ -33,8 +32,9 @@
 
 > "This will never be updated after this so I guess its the funny for forever" 💀  
 >  
-> ![Phishing Meme](https://phishing-meme.jpg)
-
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+  <iframe src="https://www.youtube.com/watch?v=D7GjL-kA9LY&t=1s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
 ---
 
 ### **Advertisement** 📝
