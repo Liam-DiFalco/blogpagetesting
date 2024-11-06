@@ -32,9 +32,7 @@
 
 > "This will never be updated after this so I guess its the funny for forever" 💀  
 >  
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-  <iframe src="https://www.youtube.com/watch?v=D7GjL-kA9LY&t=1s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-</div>
+- ![SHLOP](https://pbs.twimg.com/media/FRxiKDkXIAEMM3q?format=jpg&name=small)
 ---
 
 ### **Advertisement** 📝
